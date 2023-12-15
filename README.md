@@ -5,6 +5,9 @@
 > 
 > Make necessary changes before using it for production applications. 
 
+
+
+
 ## Contents
 * [Introduction](#introduction)
 * [Instructions](#instructions)
@@ -18,6 +21,9 @@
 * [References](#references)
 
 
+
+
+
 ## Introduction
 MongoDB offers redundancy and high availability through replica sets. These groups of servers maintain identical data copies. In case of a server failure, the remaining members automatically elect a new primary, minimizing downtime and data loss.
 
@@ -26,12 +32,18 @@ MongoDB offers redundancy and high availability through replica sets. These grou
 Leveraging Docker containers, one can quickly spin up replica sets without needing a dedicated MongoDB installation on your machine.
 
 
+
+
+
 ## Instructions
 The steps to create a docker cluster are as follows:
   1. Create a Docker network.
   2. Start three instances of MongoDB.
   3. Initiate the Replica Set.
   4. Create a Database User.
+
+
+
 
 ## Create a Docker Network
 The first step is to create a Docker network. This network will let each of your containers running in this network talk to each other.
@@ -50,6 +62,8 @@ docker network ls
 
 
 
+
+
 ## Start instances of MongoDB
 First of, pull the images from [Docker Hub](https://hub.docker.com/)
 
@@ -58,9 +72,12 @@ Next, run the following docker command:
 docker-compose -f docker-compose.yaml up -d
 ```
 
-Instead of 'Started' you might as well see 'Created' if you are running for the first time.
 
 ![Screenshot of the list of containers](./Assets/containers.png)
+
+Instead of 'Started' you might as well see 'Created' if you are running for the first time.
+
+
 
 
 ## Initiate the Replica Set
@@ -211,6 +228,8 @@ It will look something like this:
 
 See in the status log above as to which one is Primary node. If say 'mongo2' is primary, get into 'mongo2' shell to create the database user.
 
+
+
 To exit from the current mongo shell:
 ```
 exit
@@ -238,6 +257,8 @@ db.createUser(
 )
 ```
 You are now good to go!
+
+
 
 ### Updated Mongo URI
 ```
