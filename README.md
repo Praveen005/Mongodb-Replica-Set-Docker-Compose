@@ -1,4 +1,4 @@
-# Remotely connecting to your MongoDB Replica Set running on Docker
+# Remotely connecting to MongoDB Replica Set running on Docker
 
 ## Disclaimer
 > :warning: **This Configuration is purely meant for development purposes.**
