@@ -75,7 +75,7 @@ docker-compose -f docker-compose.yaml up -d
 
 ![Screenshot of the list of containers](./Assets/containers.png)
 
-Instead of 'Started' you might as well see 'Created' if you are running for the first time.
+Instead of 'started' you might as well see 'created' if you are running for the first time.
 
 
 
@@ -264,3 +264,8 @@ You are now good to go!
 ```
 mongodb://writeUser:secret@mongo1:27017,mongo2:27017,mongo3:27017/?replicaSet=myReplicaSet
 ```
+
+
+## Mongo Express
+
+![Screenshot of the Mongo Express Dashboard](./Assets/mongo-express.png)
