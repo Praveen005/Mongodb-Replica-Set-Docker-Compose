@@ -20,7 +20,9 @@
 
 ## Introduction
 MongoDB offers redundancy and high availability through replica sets. These groups of servers maintain identical data copies. In case of a server failure, the remaining members automatically elect a new primary, minimizing downtime and data loss.
+
 ![MongoDB Cluster/Replica Set](./Assets/mongo-replica.png)
+
 Leveraging Docker containers, one can quickly spin up replica sets without needing a dedicated MongoDB installation on your machine.
 
 
