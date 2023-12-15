@@ -61,7 +61,7 @@ docker network ls
 ![Screenshot of the list of docker networks](./Assets/docker-network.png)
 
 
-
+**Note:** If you don't create a docker network manually, docker compose will take care of it and create one on its own.
 
 
 ## Start instances of MongoDB
@@ -269,3 +269,16 @@ mongodb://writeUser:secret@mongo1:27017,mongo2:27017,mongo3:27017/?replicaSet=my
 ## Mongo Express
 
 ![Screenshot of the Mongo Express Dashboard](./Assets/mongo-express.png)
+
+
+## References
+
+* [Using Docker to Deploy a MongoDB Cluster](https://www.mongodb.com/compatibility/deploying-a-mongodb-cluster-with-docker#:~:text=To%20create%20a%20network%2C%20run%20the%20docker%20network%20create%20command.&text=The%20mongoCluster%20parameter%20here%20is,only%20needs%20to%20run%20once.)
+
+* [Creating Database User](https://www.mongodb.com/docs/manual/reference/method/db.createUser/)
+
+* [Connection string](https://www.mongodb.com/docs/manual/reference/connection-string/#replica-set-option)
+
+* [IP Binding](https://www.mongodb.com/docs/manual/core/security-mongodb-configuration/#:~:text=To%20bind%20to%20all%20IPv4%20and%20IPv6%20addresses%2C%20you%20can,command%2Dline%20option%20%2D%2Dbind_ip_all%20.)
+
+* [Authentication](https://www.mongodb.com/docs/manual/core/authentication/)
