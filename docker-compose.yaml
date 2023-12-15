@@ -1,0 +1,67 @@
+version: '3'
+services:
+  mongo1:
+    container_name: mongo1
+    image: mongo
+    restart: on-failure
+    ports:
+      - "27017:27017"
+    expose:
+      - "27017"
+    networks:
+      - mongo-network
+    command: mongod --replSet myReplicaSet --bind_ip_all
+    volumes:
+      - mongodb-data-1:/data/db
+    
+  mongo2:
+    container_name: mongo2
+    image: mongo
+    restart: on-failure
+    ports:
+      - "27018:27017"
+    expose:
+      - "27017"
+    networks:
+      - mongo-network
+    command: mongod --replSet myReplicaSet --bind_ip_all
+    volumes:
+      - mongodb-data-2:/data/db
+    
+  mongo3:
+    container_name: mongo3
+    image: mongo
+    restart: on-failure
+    ports:
+      - "27019:27017"
+    expose:
+      - "27017"
+    networks:
+      - mongo-network
+    command: mongod --replSet myReplicaSet --bind_ip_all
+    volumes:
+      - mongodb-data-3:/data/db
+    
+  mongoexpress:
+    container_name: mongoExpress
+    image: mongo-express
+    restart: on-failure
+    ports:
+      - "8081:8081"
+    networks:
+      - mongo-network
+    environment:
+      - ME_CONFIG_MONGODB_SERVER=mongo1,mongo2,mongo3
+      - ME_CONFIG_MONGODB_URL="mongodb://writeUser:secret@mongo1:27017,mongo2:27017,mongo3:27017/?replicaSet=myReplicaSet"
+      # Add your user credentials for authentication
+      - ME_CONFIG_MONGODB_ADMINUSERNAME=writeUser
+      - ME_CONFIG_MONGODB_ADMINPASSWORD=secret
+
+networks:
+  mongo-network:
+    external: true
+
+volumes:
+  mongodb-data-1:
+  mongodb-data-2:
+  mongodb-data-3:
