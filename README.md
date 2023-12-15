@@ -16,6 +16,8 @@
 * [Initiate the Replica Set](#initiate-the-replica-set)
 * [Check the status of the replica set](#check-the-status-of-the-replica-set)
 * [Open Mongo Shell](#open-mongo-shell)
+* [Create User with necessary privileges](#create-user-with-necessary-privileges)
+* [Edit the `hosts` file](#edit-the-hosts-file)
 * [Updated Mongo URI](#updated-mongo-uri)
 * [Mongo Express](#mongo-express)
 * [References](#references)
@@ -41,6 +43,7 @@ The steps to create a docker cluster are as follows:
   2. Start three instances of MongoDB.
   3. Initiate the Replica Set.
   4. Create a Database User.
+  5. Edit the `hosts` file
 
 
 
@@ -239,11 +242,13 @@ To get into primary node shell(say 'mongo2' is primary):
 ```
 docker exec -it mongo2 mongosh
 ```
-Next Up:
+
+### Create User with necessary privileges
+
 ```
 use admin
 ```
-Create User with necessary privileges:
+
 ```
 db.createUser(
   {
@@ -258,6 +263,22 @@ db.createUser(
 ```
 You are now good to go!
 
+
+### Edit the `hosts` file
+
+Navigate to the following directory in your computer:
+
+```
+C:\Windows\System32\drivers\etc
+```
+
+Check for `hosts` file. Open with administrative privileges and add the following IPs to hosts mapping:
+
+```
+127.0.0.1 mongo1
+127.0.0.2 mongo2
+127.0.0.3 mongo3
+```
 
 
 ### Updated Mongo URI
